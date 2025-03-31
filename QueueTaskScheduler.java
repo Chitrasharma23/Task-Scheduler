@@ -12,16 +12,14 @@ class Task {
     }
 }
 
-class QueueTaskScheduler {
+public class TaskScheduler { // Class name must match file name
     private Queue<Task> taskQueue = new LinkedList<>();
 
-    // Add task to the queue
     public void addTask(String description, String date, String time) {
         taskQueue.add(new Task(description, date, time));
         System.out.println("Task added successfully!");
     }
 
-    // View all tasks in order
     public void viewTasks() {
         if (taskQueue.isEmpty()) {
             System.out.println("No tasks scheduled.");
@@ -33,7 +31,6 @@ class QueueTaskScheduler {
         }
     }
 
-    // Complete (remove) the first task in FIFO order
     public void completeTask() {
         if (taskQueue.isEmpty()) {
             System.out.println("No tasks to complete.");
@@ -43,7 +40,6 @@ class QueueTaskScheduler {
         System.out.println("Completed task: " + completedTask.description);
     }
 
-    // Check if the first task is due
     public void checkNextTask() {
         if (taskQueue.isEmpty()) {
             System.out.println("No upcoming tasks.");
@@ -52,11 +48,9 @@ class QueueTaskScheduler {
         Task nextTask = taskQueue.peek();
         System.out.println("Upcoming Task: " + nextTask.description + " on " + nextTask.date + " at " + nextTask.time);
     }
-}
 
-public class Main {
     public static void main(String[] args) {
-        QueueTaskScheduler scheduler = new QueueTaskScheduler();
+        TaskScheduler scheduler = new TaskScheduler();
         Scanner scanner = new Scanner(System.in);
         int choice;
 
@@ -69,7 +63,7 @@ public class Main {
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -101,3 +95,10 @@ public class Main {
     }
 }
 
+
+    
+   
+    
+            
+                   
+                    
